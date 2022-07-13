@@ -7,7 +7,7 @@ function Header() {
             <nav className="sticky-top">
                 <div className="sticky-top">
                     <Link className="custom-button" to="/">Home</Link>
-                    <Link className="custom-button" to="/list">List</Link>
+                    <Link className="custom-button" to="/search">Search</Link>
                 </div>
             </nav>
             <br />

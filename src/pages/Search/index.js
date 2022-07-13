@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { setList } from "../../actions";
 import { useSelector, useDispatch } from "react-redux";
 
-const List = () => {
+const Search = () => {
     const listOfSearchResult = useSelector(state => state.listReducer);
     const dispatch = useDispatch();
 
@@ -82,4 +82,4 @@ const List = () => {
     );
 };
 //<List />
-export default List;
+export default Search;
