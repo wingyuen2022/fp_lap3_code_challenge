@@ -1,10 +1,10 @@
-const githubReducer = (state = [], action) => {
+const reposReducer = (state = [], action) => {
     switch(action.type) {
-        case "SET_LIST":
+        case "SET_REPOS":
             state = action.payload;
             return state;
         default:
             return state;
     }
 };
-export default githubReducer;
+export default reposReducer;

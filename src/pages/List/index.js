@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import { setGithubList } from "../../actions";
+import { setList } from "../../actions";
 import { useSelector, useDispatch } from "react-redux";
 
 const List = () => {
-    const listOfGithub = useSelector(state => state.githubReducer);
+    const listOfSearchResult = useSelector(state => state.listReducer);
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
@@ -12,9 +12,9 @@ const List = () => {
         if (corhort !== undefined && corhort !== null && corhort !== "") {
             let listOfStudent = new Promise((resolve, reject) => {
                 try {
-                    const url1 = `https://raw.githubusercontent.com/getfutureproof/fp_study_notes_hello_github/main/${corhort}/roster.json`;
-                    fetch(url1).then((res1)=>res1.json()).then((data1)=>{
-                        resolve(data1.students);
+                    const url = `https://raw.githubusercontent.com/getfutureproof/fp_study_notes_hello_github/main/${corhort}/roster.json`;
+                    fetch(url).then((res)=>res.json()).then((data)=>{
+                        resolve(data.students);
                     }).catch((err)=>{
                         reject(err);
                     });
@@ -23,13 +23,7 @@ const List = () => {
                 }
             });
             listOfStudent.then((listOfStudent)=>{
-                listOfStudent.map((curStudent, index)=>{
-                    const url2 = `https://api.github.com/users/${curStudent.github}/repos`;
-                    fetch(url2).then((res2)=>res2.json()).then((data2)=>{
-                        listOfStudent[index]['repo'] = data2;
-                    });
-                });
-                dispatch(setGithubList(listOfStudent));
+                dispatch(setList(listOfStudent));                
             }).catch((err)=>{
                 console.log(err);
             });
@@ -37,24 +31,22 @@ const List = () => {
     };
 
     useEffect(()=>{
-        renderHTML(listOfGithub);
-    }, [listOfGithub]);
+        renderHTML(listOfSearchResult);
+    }, [listOfSearchResult]);
 
-    const renderHTML = (listOfGithub) => {
+    const renderHTML = (listOfSearchResult) => {
         let html = ``;
         html = `<table>`;
-        listOfGithub.map((cur1, index1)=>{
-            cur1.repo.map((cur2, index2)=>{
-                html = html + `
-                <tr>
-                    <td><b>${cur1.name}</b></td>
-                    <td><b>${cur1.github}</b></td>
-                    <td><b><a href="${cur2.url}">${cur2.name}</a></b></td>
-                </tr>`;
-            });
+        html = html + `<tr><td width="300px"><h1>Name</h1></td><td width="300px"><h1>Github</h1></td></tr>`;
+        listOfSearchResult.map((cur1, index1)=>{
+            html = html + `
+            <tr>
+                <td width="300px"><a href="/details/${cur1.github}"><b>${cur1.name}</b></a></td>
+                <td width="300px"><a href="/details/${cur1.github}"><b>${cur1.github}</b></a></td>
+            </tr>`;
         });
         html = html + `</table>`;
-        const infoDiv = document.getElementById("github_info");
+        const infoDiv = document.getElementById("student_github");
         infoDiv.innerHTML = html;
     };
 
@@ -65,14 +57,23 @@ const List = () => {
                     <tr>
                         <td>
                             <form onSubmit={handleSubmit}>
-                                <input id="corhort" type="text" placeholder="corhort name"></input>
+                                <select id="corhort" name="corhort">
+                                    <option value="al-jazari" default>Al-jazari</option>
+                                    <option value="morgan">Morgan</option>
+                                    <option value="rincon">Rincon</option>
+                                    <option value="bhatia">Bhatia</option>
+                                    <option value="wilkes">Wilkes</option>
+                                    <option value="mitnick">Mitnick</option>
+                                    <option value="gebru">Gebru</option>
+                                    <option value="auguste">Auguste</option>
+                                </select>
                                 <button type="submit">Search</button>
                             </form>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div id="github_info"></div>
+                            <div id="student_github"></div>
                         </td>
                     </tr>
                 </table>

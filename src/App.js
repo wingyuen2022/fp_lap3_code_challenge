@@ -18,7 +18,8 @@ const App = () => {
           <Layout />
           <Routes>
             <Route path="/" element={<Pages.Home />} />
-            <Route path="list" element={<Pages.List />} />
+            <Route path="/list" element={<Pages.List />} />
+            <Route path="/details/:github" element={<Pages.Details />} />
             <Route path="*" element={<Pages.NotFound />} />
           </Routes>
         </div>
