@@ -6,7 +6,7 @@ const Home = () => {
         return (
         <>
             <div className="align-center">
-                <h1>Welcome to Al-Jazari Github home</h1>
+                <h1>Welcome to futureproof github enquiry centre</h1>
             </div>
         </>);
     };
