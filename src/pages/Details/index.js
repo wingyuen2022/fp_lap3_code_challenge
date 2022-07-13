@@ -37,9 +37,9 @@ const Details = () => {
 
     const renderHTML = (repos) => {
         let html = ``;
-        html = `<h1>${github}</h1><br />`;
+        html = `<h1>${github} <b>(${repos.length})</b></h1><br />`;
         html = html + `<table>`;
-        html = html + `<tr><td width="300px"><h1>Repo Name</h1></td><td width="300px"><h1>Url</h1></td><td><h1>Visibility</h1></td></tr>`;
+        html = html + `<tr><td width="300px"><h1>Repo Name</h1></td><td width="700px"><h1>Url</h1></td><td><h1>Visibility</h1></td></tr>`;
         repos.map((cur)=>{
             html = html + `
             <tr key=${cur.id}>
