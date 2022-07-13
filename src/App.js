@@ -22,6 +22,13 @@ const App = () => {
             <Route path="/details/:github" element={<Pages.Details />} />
             <Route path="*" element={<Pages.NotFound />} />
           </Routes>
+          <br></br>
+          <div className="align-center">
+            <a href="https://github.com/wingyuen2022/fp_lap3_code_challenge" target="_blank"><b>futureproof github enquiry centre</b></a>
+          </div>
+          <div className="align-center">
+            <b>Powered by: <a href="https://docs.github.com/en/rest" target="_blank">GitHub API</a></b>
+          </div>
         </div>
       </Provider>
     </>

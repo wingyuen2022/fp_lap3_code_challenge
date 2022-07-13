@@ -57,6 +57,7 @@ const Search = () => {
                     <tr>
                         <td>
                             <form onSubmit={handleSubmit}>
+                                <label for="corhort"><h1>Corhort:</h1></label>
                                 <select id="corhort" name="corhort">
                                     <option value="al-jazari" default>Al-jazari</option>
                                     <option value="morgan">Morgan</option>
