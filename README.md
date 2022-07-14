@@ -9,3 +9,6 @@
 - Execute command 'git clone' to download repo
 - Execute command 'npm install' to install
 - Execute command 'npm run start'
+
+## API Used
+- GitHub API
