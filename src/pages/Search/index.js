@@ -14,7 +14,8 @@ const Search = () => {
                 try {
                     const url = `https://raw.githubusercontent.com/getfutureproof/fp_study_notes_hello_github/main/${corhort}/roster.json`;
                     fetch(url).then((res)=>res.json()).then((data)=>{
-                        resolve(data.students);
+                        const sortStudents = data.students.sort(function(std1, std2) {if (std1.name[0] > std2.name[0]) {return 1} if (std1.name[0] < std2.name[0]) {return -1} return 0;})
+                        resolve(sortStudents);
                     }).catch((err)=>{
                         reject(err);
                     });
@@ -59,16 +60,20 @@ const Search = () => {
                             <form onSubmit={handleSubmit}>
                                 <label for="corhort"><h1>Corhort:</h1></label>
                                 <select id="corhort" name="corhort">
-                                    <option value="al-jazari" default>Al-jazari</option>
-                                    <option value="morgan">Morgan</option>
-                                    <option value="rincon">Rincon</option>
+                                    <option value="sholes">Sholes</option>
+                                    <option value="gustafsson">Gustafsson</option>
+                                    <option value="nakamoto">Nakamoto</option>
+                                    <option value="shaw">Shaw</option>
                                     <option value="bhatia">Bhatia</option>
-                                    <option value="wilkes">Wilkes</option>
-                                    <option value="mitnick">Mitnick</option>
-                                    <option value="gebru">Gebru</option>
+                                    <option value="rincon">Rincon</option>
+                                    <option value="morgan">Morgan</option>
+                                    <option value="al-jazari" selected>Al-jazari</option>
                                     <option value="auguste">Auguste</option>
+                                    <option value="gebru">Gebru</option>
+                                    <option value="mitnick">Mitnick</option>
+                                    <option value="wilkes">Wilkes</option>
                                 </select>
-                                <button type="submit">Search</button>
+                                <button type="submit" class="btn btn-light">Search</button>
                             </form>
                         </td>
                     </tr>

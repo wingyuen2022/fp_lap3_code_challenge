@@ -6,8 +6,8 @@ function Header() {
         <>
             <nav className="sticky-top">
                 <div className="sticky-top">
-                    <Link className="custom-button" to="/">Home</Link>
-                    <Link className="custom-button" to="/search">Search</Link>
+                    <Link to="/"><button type="button" class="btn btn-light">Home</button></Link>
+                    <Link to="/search"><button type="button" class="btn btn-light">Search</button></Link>
                 </div>
             </nav>
             <br />
