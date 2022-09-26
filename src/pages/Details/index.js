@@ -69,7 +69,7 @@ const Details = () => {
                 <button onClick={(e)=>{
                     e.preventDefault();
                     navigate(-1);
-                }}>Back</button>
+                }} class="btn btn-light">Back</button>
             </form>
         </>
     );
