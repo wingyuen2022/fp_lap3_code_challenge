@@ -1,14 +1,13 @@
-### This is Al-Jazari Code challange in Lap 3
+![](./public/futureproof_students_github_search.gif)
+---
+# Futureproof Student GitHub Search
+- API used: GitHub API (https://docs.github.com/en/rest)
 
-## Collaborators:
-- Abigail Shadare (abscoding)
-- Ayoub Laissaoui (NovaDA)
-- Wing Yuen (wingyuen2022)
+# Feature
+- Get all student's GitHub by cohort.
+- List their projects.
 
-## Installation
+# Installation
 - Execute command 'git clone' to download repo
 - Execute command 'npm install' to install
 - Execute command 'npm run start'
-
-## API Used
-- GitHub API
